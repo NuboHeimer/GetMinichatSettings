@@ -3,7 +3,7 @@
 ///   Author:       NuboHeimer (https://vkplay.live/nuboheimer)
 ///   Email:        nuboheimer@yandex.ru
 ///   Telegram:     t.me/nuboheimer
-///   Version:      0.1.0
+///   Version:      0.2.0
 ///----------------------------------------------------------------------------
 
 using System;
@@ -43,10 +43,41 @@ public class CPHInline
         CPH.SetArgument("twitchLogin", data.Twitch.Login);
         return true;
     }
+    public bool GetYouTubeChannelID()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("YouTubeChannelID", data.YouTube.ChannelID);
+        return true;
+    }
+    public bool GetYouTubeCreatorChannelID()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("YouTubeCreatorChannelID", data.YouTube.CreatorChannelID);
+        return true;
+    }
+    public bool GetYouTubeAccessToken()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("YouTubeAccessToken", data.YouTube.AccessToken);
+        return true;
+    }
+    public bool GetYouTubeExpires()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("YouTubeExpires", data.YouTube.Expires);
+        return true;
+    }
+    public bool GetYouTubeRefreshToken()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("YouTubeRefreshToken", data.YouTube.RefreshToken);
+        return true;
+    }
 
     public class MiniChatSettings
     {
         public TwitchData Twitch { get; set; }
+        public YouTubeData YouTube { get; set; }
     }
 
     public class TwitchData
@@ -55,5 +86,13 @@ public class CPHInline
         public string AccessToken { get; set; }
         public string UserID { get; set; }
         public string Login { get; set; }
+    }
+    public class YouTubeData
+    {
+        public string ChannelID { get; set; }
+        public string CreatorChannelID { get; set; }
+        public string AccessToken { get; set; }
+        public string Expires { get; set; }
+        public string RefreshToken { get; set; }
     }
 }
