@@ -3,7 +3,7 @@
 ///   Author:       NuboHeimer (https://vkplay.live/nuboheimer)
 ///   Email:        nuboheimer@yandex.ru
 ///   Telegram:     t.me/nuboheimer
-///   Version:      0.0.0
+///   Version:      0.1.0
 ///----------------------------------------------------------------------------
 
 using System;
@@ -47,7 +47,6 @@ public class CPHInline
     public class MiniChatSettings
     {
         public TwitchData Twitch { get; set; }
-        public GoodGameData GoodGame { get; set; }
     }
 
     public class TwitchData
@@ -56,10 +55,5 @@ public class CPHInline
         public string AccessToken { get; set; }
         public string UserID { get; set; }
         public string Login { get; set; }
-    }
-    public class GoodGameData
-    {
-        public string ChannelKey { get; set; }
-        public string AccessToken { get; set; }
     }
 }
