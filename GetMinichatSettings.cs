@@ -3,7 +3,7 @@
 ///   Author:       NuboHeimer (https://vkplay.live/nuboheimer)
 ///   Email:        nuboheimer@yandex.ru
 ///   Telegram:     t.me/nuboheimer
-///   Version:      0.2.0
+///   Version:      0.3.0
 ///----------------------------------------------------------------------------
 
 using System;
@@ -73,11 +73,36 @@ public class CPHInline
         CPH.SetArgument("YouTubeRefreshToken", data.YouTube.RefreshToken);
         return true;
     }
+    public bool GetGoodGameChannelKey()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("GoodGameChannelKey", data.GoodGame.ChannelKey);
+        return true;
+    }
+    public bool GetGoodGameToken()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("GoodGameToken", data.GoodGame.Token);
+        return true;
+    }
+    public bool GetGoodGameAccessToken()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("GoodGameAccessToken", data.GoodGame.AccessToken);
+        return true;
+    }
+    public bool GetGoodGameUserID()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("GoodGameUserID", data.GoodGame.UserID);
+        return true;
+    }
 
     public class MiniChatSettings
     {
         public TwitchData Twitch { get; set; }
         public YouTubeData YouTube { get; set; }
+        public GoodGameData GoodGame { get; set; }
     }
 
     public class TwitchData
@@ -94,5 +119,12 @@ public class CPHInline
         public string AccessToken { get; set; }
         public string Expires { get; set; }
         public string RefreshToken { get; set; }
+    }
+    public class GoodGameData
+    {
+        public string ChannelKey { get; set; }
+        public string Token { get; set; }
+        public string AccessToken { get; set; }
+        public string UserID { get; set; }
     }
 }
