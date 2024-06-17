@@ -3,7 +3,7 @@
 ///   Author:       NuboHeimer (https://vkplay.live/nuboheimer)
 ///   Email:        nuboheimer@yandex.ru
 ///   Telegram:     t.me/nuboheimer
-///   Version:      0.4.0
+///   Version:      0.5.0
 ///----------------------------------------------------------------------------
 
 using System;
@@ -103,6 +103,30 @@ public class CPHInline
         CPH.SetArgument("donationAlertsToken", data.DonationAlertsToken);
         return true;
     }
+    public bool GetVKPlayBlogUrl()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("VKPlayBlogUrl", data.VKPlay.BlogUrl);
+        return true;
+    }
+    public bool GetVKPlayClientID()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("VKPlayClientID", data.VKPlay.ClientID);
+        return true;
+    }
+    public bool GetVKPlayAccessToken()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("VKPlayAccessToken", data.VKPlay.AccessToken);
+        return true;
+    }
+    public bool GetVKPlayExpiresAt()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("VKPlayExpiresAt", data.VKPlay.ExpiresAt);
+        return true;
+    }
 
     public class MiniChatSettings
     {
@@ -110,6 +134,7 @@ public class CPHInline
         public YouTubeData YouTube { get; set; }
         public GoodGameData GoodGame { get; set; }
         public string DonationAlertsToken { get; set; }
+        public VKPlayData VKPlay { get; set; }
     }
 
     public class TwitchData
@@ -133,5 +158,13 @@ public class CPHInline
         public string Token { get; set; }
         public string AccessToken { get; set; }
         public string UserID { get; set; }
+    }
+    public class VKPlayData
+    {
+        public string BlogUrl { get; set; }
+        public string ClientID { get; set; }
+        public string AccessToken { get; set; }
+        public string RefreshToken { get; set; }
+        public string ExpiresAt { get; set; }
     }
 }
