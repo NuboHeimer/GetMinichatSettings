@@ -3,7 +3,7 @@
 ///   Author:       NuboHeimer (https://vkplay.live/nuboheimer)
 ///   Email:        nuboheimer@yandex.ru
 ///   Telegram:     t.me/nuboheimer
-///   Version:      0.3.0
+///   Version:      0.4.0
 ///----------------------------------------------------------------------------
 
 using System;
@@ -46,55 +46,61 @@ public class CPHInline
     public bool GetYouTubeChannelID()
     {
         var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
-        CPH.SetArgument("YouTubeChannelID", data.YouTube.ChannelID);
+        CPH.SetArgument("youTubeChannelID", data.YouTube.ChannelID);
         return true;
     }
     public bool GetYouTubeCreatorChannelID()
     {
         var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
-        CPH.SetArgument("YouTubeCreatorChannelID", data.YouTube.CreatorChannelID);
+        CPH.SetArgument("youTubeCreatorChannelID", data.YouTube.CreatorChannelID);
         return true;
     }
     public bool GetYouTubeAccessToken()
     {
         var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
-        CPH.SetArgument("YouTubeAccessToken", data.YouTube.AccessToken);
+        CPH.SetArgument("youTubeAccessToken", data.YouTube.AccessToken);
         return true;
     }
     public bool GetYouTubeExpires()
     {
         var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
-        CPH.SetArgument("YouTubeExpires", data.YouTube.Expires);
+        CPH.SetArgument("youTubeExpires", data.YouTube.Expires);
         return true;
     }
     public bool GetYouTubeRefreshToken()
     {
         var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
-        CPH.SetArgument("YouTubeRefreshToken", data.YouTube.RefreshToken);
+        CPH.SetArgument("youTubeRefreshToken", data.YouTube.RefreshToken);
         return true;
     }
     public bool GetGoodGameChannelKey()
     {
         var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
-        CPH.SetArgument("GoodGameChannelKey", data.GoodGame.ChannelKey);
+        CPH.SetArgument("goodGameChannelKey", data.GoodGame.ChannelKey);
         return true;
     }
     public bool GetGoodGameToken()
     {
         var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
-        CPH.SetArgument("GoodGameToken", data.GoodGame.Token);
+        CPH.SetArgument("goodGameToken", data.GoodGame.Token);
         return true;
     }
     public bool GetGoodGameAccessToken()
     {
         var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
-        CPH.SetArgument("GoodGameAccessToken", data.GoodGame.AccessToken);
+        CPH.SetArgument("goodGameAccessToken", data.GoodGame.AccessToken);
         return true;
     }
     public bool GetGoodGameUserID()
     {
         var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
-        CPH.SetArgument("GoodGameUserID", data.GoodGame.UserID);
+        CPH.SetArgument("goodGameUserID", data.GoodGame.UserID);
+        return true;
+    }
+    public bool GetDonationAlertsToken()
+    {
+        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        CPH.SetArgument("donationAlertsToken", data.DonationAlertsToken);
         return true;
     }
 
@@ -103,6 +109,7 @@ public class CPHInline
         public TwitchData Twitch { get; set; }
         public YouTubeData YouTube { get; set; }
         public GoodGameData GoodGame { get; set; }
+        public string DonationAlertsToken { get; set; }
     }
 
     public class TwitchData
