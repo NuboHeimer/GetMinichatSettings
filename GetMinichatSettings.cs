@@ -3,7 +3,7 @@
 ///   Author:       NuboHeimer (https://vkplay.live/nuboheimer)
 ///   Email:        nuboheimer@yandex.ru
 ///   Telegram:     t.me/nuboheimer
-///   Version:      0.6.0
+///   Version:      0.7.0
 ///----------------------------------------------------------------------------
 
 using System;
@@ -12,154 +12,154 @@ using Newtonsoft.Json;
 
 public class CPHInline
 {
-    public string GetAllSettings()
+    public MiniChatSettings ParseAllSettings()
     {
         string miniChatSettingsPath = args["miniChatSettingsPath"].ToString();
         string miniChatSettings = File.ReadAllText(miniChatSettingsPath);
-        return miniChatSettings;
+        return JsonConvert.DeserializeObject<MiniChatSettings>(miniChatSettings);
     }
 
     public bool GetTwitchChannelName()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("twitchChannelName", data.Twitch.ChannelName);
         return true;
     }
     public bool GetTwitchAccessToken()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("twitchAccessToken", data.Twitch.AccessToken);
         return true;
     }
     public bool GetTwitchUserID()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("twitchUserID", data.Twitch.UserID);
         return true;
     }
     public bool GetTwitchLogin()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("twitchLogin", data.Twitch.Login);
         return true;
     }
     public bool GetYouTubeChannelID()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("youTubeChannelID", data.YouTube.ChannelID);
         return true;
     }
     public bool GetYouTubeCreatorChannelID()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("youTubeCreatorChannelID", data.YouTube.CreatorChannelID);
         return true;
     }
     public bool GetYouTubeAccessToken()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("youTubeAccessToken", data.YouTube.AccessToken);
         return true;
     }
     public bool GetYouTubeExpires()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("youTubeExpires", data.YouTube.Expires);
         return true;
     }
     public bool GetYouTubeRefreshToken()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("youTubeRefreshToken", data.YouTube.RefreshToken);
         return true;
     }
     public bool GetGoodGameChannelKey()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("goodGameChannelKey", data.GoodGame.ChannelKey);
         return true;
     }
     public bool GetGoodGameToken()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("goodGameToken", data.GoodGame.Token);
         return true;
     }
     public bool GetGoodGameAccessToken()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("goodGameAccessToken", data.GoodGame.AccessToken);
         return true;
     }
     public bool GetGoodGameUserID()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("goodGameUserID", data.GoodGame.UserID);
         return true;
     }
     public bool GetDonationAlertsToken()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("donationAlertsToken", data.DonationAlertsToken);
         return true;
     }
     public bool GetVKPlayBlogUrl()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("vkPlayBlogUrl", data.VKPlay.BlogUrl);
         return true;
     }
     public bool GetVKPlayClientID()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("vkPlayClientID", data.VKPlay.ClientID);
         return true;
     }
     public bool GetVKPlayAccessToken()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("vkPlayAccessToken", data.VKPlay.AccessToken);
         return true;
     }
     public bool GetVKPlayRefreshToken()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("vkPlayRefreshToken", data.VKPlay.RefreshToken);
         return true;
     }
     public bool GetVKPlayExpiresAt()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("vkPlayExpiresAt", data.VKPlay.ExpiresAt);
         return true;
     }
     public bool GetBoostyBlogUrl()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("boostyBlogUrl", data.Boosty.BlogUrl);
         return true;
     }
     public bool GetBoostyClientID()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("boostyClientID", data.Boosty.ClientID);
         return true;
     }
     public bool GetBoostyAccessToken()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("boostyAccessToken", data.Boosty.AccessToken);
         return true;
     }
     public bool GetBoostyRefreshToken()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("boostyRefreshToken", data.Boosty.RefreshToken);
         return true;
     }
     public bool GetBoostyExpiresAt()
     {
-        var data = JsonConvert.DeserializeObject<MiniChatSettings>(GetAllSettings());
+        var data = ParseAllSettings();
         CPH.SetArgument("boostyExpiresAt", data.Boosty.ExpiresAt);
         return true;
     }
